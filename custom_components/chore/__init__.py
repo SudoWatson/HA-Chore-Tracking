@@ -28,7 +28,7 @@ SERVICE_MARK_DONE_SCHEMA = vol.Schema(
 
 CARD_URL_BASE = "/chore_tracker_frontend"
 CARD_JS_PATH = f"{CARD_URL_BASE}/chore-card.js"
-CARD_JS_URL = f"{CARD_JS_PATH}?v=3"
+CARD_JS_URL = f"{CARD_JS_PATH}?v=4"
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:

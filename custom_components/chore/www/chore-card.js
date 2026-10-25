@@ -35,19 +35,19 @@ class ChoreCard extends HTMLElement {
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 16px;
+            padding: 24px 16px;
           }
           .chore-card__icon {
-            --mdc-icon-size: 40px;
+            --mdc-icon-size: 80px;
             color: var(--state-icon-color, var(--paper-item-icon-color));
-            margin-bottom: 8px;
+            margin-bottom: 16px;
           }
           .chore-card__name {
-            font-size: 0.9em;
+            font-size: 1em;
             font-weight: 500;
           }
           .chore-card__state {
-            font-size: 0.8em;
+            font-size: 0.85em;
             opacity: 0.8;
           }
           .chore-card__body--due .chore-card__icon {
