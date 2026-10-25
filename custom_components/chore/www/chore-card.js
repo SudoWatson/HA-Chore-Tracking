@@ -1,3 +1,9 @@
+console.info(
+  "%c CHORE-CARD %c Loaded ",
+  "color: white; background: #44739e; font-weight: 700;",
+  "color: #44739e; background: white; font-weight: 700;"
+);
+
 class ChoreCard extends HTMLElement {
   constructor() {
     super();
