@@ -30,15 +30,16 @@ class ChoreCard extends HTMLElement {
             cursor: pointer;
           }
           .chore-card__body {
+            container-type: inline-size;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 24px 16px;
+            padding: 4cqw 16px;
           }
           .chore-card__icon {
-            --mdc-icon-size: 80px;
+            --mdc-icon-size: 40cqw;
             color: var(--state-icon-color, var(--paper-item-icon-color));
             margin-bottom: 16px;
           }
