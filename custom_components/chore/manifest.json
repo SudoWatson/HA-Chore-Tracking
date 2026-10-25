@@ -1,6 +1,7 @@
 {
   "domain": "chore",
   "name": "Chore Tracker",
+  "after_dependencies": ["lovelace"],
   "codeowners": ["@SudoWatson"],
   "config_flow": true,
   "documentation": "https://github.com/SudoWatson/ha-chore-tracker",
