@@ -124,8 +124,8 @@ class ChoreSensor(RestoreEntity, SensorEntity):
         self.async_write_ha_state()
         async_dispatcher_send(self.hass, SIGNAL_CHORE_UPDATED)
 
-    async def async_mark_done(self) -> None:
-        self._last_done = dt_util.utcnow()
+    async def async_mark_done(self, when: datetime | None = None) -> None:
+        self._last_done = dt_util.as_utc(when) if when else dt_util.utcnow()
         self.async_write_ha_state()
         async_dispatcher_send(self.hass, SIGNAL_CHORE_UPDATED)
 

@@ -5,3 +5,12 @@ mark_done:
     entity:
       domain: sensor
       integration: chore
+  fields:
+    when:
+      name: When
+      description: >-
+        Timestamp to use instead of now. Mainly useful for testing/debugging
+        - e.g. backdating a chore a few days to see it turn due/overdue.
+      required: false
+      selector:
+        datetime: {}

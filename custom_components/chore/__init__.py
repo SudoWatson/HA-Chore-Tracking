@@ -19,7 +19,12 @@ _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS = [Platform.SENSOR]
 
-SERVICE_MARK_DONE_SCHEMA = vol.Schema({vol.Required(ATTR_ENTITY_ID): cv.entity_ids})
+SERVICE_MARK_DONE_SCHEMA = vol.Schema(
+    {
+        vol.Required(ATTR_ENTITY_ID): cv.entity_ids,
+        vol.Optional("when"): cv.datetime,
+    }
+)
 
 CARD_URL_BASE = "/chore_tracker_frontend"
 CARD_JS_PATH = f"{CARD_URL_BASE}/chore-card.js"
@@ -40,9 +45,10 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     async def handle_mark_done(call: ServiceCall) -> None:
         entity_ids = set(call.data[ATTR_ENTITY_ID])
+        when = call.data.get("when")
         for sensor in hass.data[DOMAIN]["chores"].values():
             if sensor.entity_id in entity_ids:
-                await sensor.async_mark_done()
+                await sensor.async_mark_done(when)
 
     hass.services.async_register(
         DOMAIN, SERVICE_MARK_DONE, handle_mark_done, schema=SERVICE_MARK_DONE_SCHEMA
