@@ -1,4 +1,9 @@
 class ChoreCard extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+
   setConfig(config) {
     if (!config.entity) {
       throw new Error("You need to define an entity");
@@ -6,7 +11,7 @@ class ChoreCard extends HTMLElement {
     this._config = config;
 
     if (!this._body) {
-      this.innerHTML = `
+      this.shadowRoot.innerHTML = `
         <ha-card>
           <div class="chore-card__body">
             <ha-icon class="chore-card__icon"></ha-icon>
@@ -46,11 +51,11 @@ class ChoreCard extends HTMLElement {
           }
         </style>
       `;
-      this._body = this.querySelector(".chore-card__body");
-      this._icon = this.querySelector(".chore-card__icon");
-      this._name = this.querySelector(".chore-card__name");
-      this._state = this.querySelector(".chore-card__state");
-      this.querySelector("ha-card").addEventListener("click", () =>
+      this._body = this.shadowRoot.querySelector(".chore-card__body");
+      this._icon = this.shadowRoot.querySelector(".chore-card__icon");
+      this._name = this.shadowRoot.querySelector(".chore-card__name");
+      this._state = this.shadowRoot.querySelector(".chore-card__state");
+      this.shadowRoot.querySelector("ha-card").addEventListener("click", () =>
         this._markDone()
       );
     }
@@ -111,6 +116,11 @@ class ChoreCard extends HTMLElement {
 }
 
 class ChoreCardEditor extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+
   setConfig(config) {
     this._config = config;
     this._render();
@@ -133,7 +143,7 @@ class ChoreCardEditor extends HTMLElement {
           new CustomEvent("config-changed", { detail: { config: this._config } })
         );
       });
-      this.appendChild(this._form);
+      this.shadowRoot.appendChild(this._form);
     }
     this._form.hass = this._hass;
     this._form.data = this._config;
