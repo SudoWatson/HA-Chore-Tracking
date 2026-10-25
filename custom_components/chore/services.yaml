@@ -1,0 +1,7 @@
+mark_done:
+  name: Mark done
+  description: Reset a chore's "days since last done" counter to zero.
+  target:
+    entity:
+      domain: sensor
+      integration: chore

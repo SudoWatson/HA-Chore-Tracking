@@ -1,0 +1,12 @@
+{
+  "domain": "chore",
+  "name": "Chore Tracker",
+  "codeowners": ["@SudoWatson"],
+  "config_flow": true,
+  "documentation": "https://github.com/SudoWatson/ha-chore-tracker",
+  "integration_type": "helper",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/SudoWatson/ha-chore-tracker/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

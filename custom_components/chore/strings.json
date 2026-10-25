@@ -1,0 +1,43 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add Chore",
+        "description": "Track a recurring chore by counting days since it was last done.",
+        "data": {
+          "name": "Name",
+          "days_till_due": "Days till due",
+          "days_till_overdue": "Days till overdue",
+          "icon": "Icon"
+        }
+      }
+    },
+    "error": {
+      "overdue_not_after_due": "Days till overdue must be greater than days till due.",
+      "name_required": "Name is required."
+    },
+    "abort": {
+      "already_configured": "The chore overview entity already exists."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Edit Chore",
+        "data": {
+          "name": "Name",
+          "days_till_due": "Days till due",
+          "days_till_overdue": "Days till overdue",
+          "icon": "Icon"
+        }
+      }
+    },
+    "error": {
+      "overdue_not_after_due": "Days till overdue must be greater than days till due.",
+      "name_required": "Name is required."
+    },
+    "abort": {
+      "no_options": "The chore overview entity has nothing to configure."
+    }
+  }
+}
