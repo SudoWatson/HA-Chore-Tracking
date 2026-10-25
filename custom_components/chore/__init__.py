@@ -23,7 +23,7 @@ SERVICE_MARK_DONE_SCHEMA = vol.Schema({vol.Required(ATTR_ENTITY_ID): cv.entity_i
 
 CARD_URL_BASE = "/chore_tracker_frontend"
 CARD_JS_PATH = f"{CARD_URL_BASE}/chore-card.js"
-CARD_JS_URL = f"{CARD_JS_PATH}?v=2"
+CARD_JS_URL = f"{CARD_JS_PATH}?v=3"
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:

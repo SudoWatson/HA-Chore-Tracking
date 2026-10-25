@@ -21,10 +21,8 @@ class ChoreCard extends HTMLElement {
         <ha-card>
           <div class="chore-card__body">
             <ha-icon class="chore-card__icon"></ha-icon>
-            <div class="chore-card__text">
-              <div class="chore-card__name"></div>
-              <div class="chore-card__state"></div>
-            </div>
+            <div class="chore-card__name"></div>
+            <div class="chore-card__state"></div>
           </div>
         </ha-card>
         <style>
@@ -33,20 +31,23 @@ class ChoreCard extends HTMLElement {
           }
           .chore-card__body {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 16px;
+            justify-content: center;
+            text-align: center;
             padding: 16px;
           }
           .chore-card__icon {
-            --mdc-icon-size: 32px;
+            --mdc-icon-size: 40px;
             color: var(--state-icon-color, var(--paper-item-icon-color));
+            margin-bottom: 8px;
           }
           .chore-card__name {
-            font-size: 1.1em;
+            font-size: 0.9em;
             font-weight: 500;
           }
           .chore-card__state {
-            font-size: 0.9em;
+            font-size: 0.8em;
             opacity: 0.8;
           }
           .chore-card__body--due .chore-card__icon {
