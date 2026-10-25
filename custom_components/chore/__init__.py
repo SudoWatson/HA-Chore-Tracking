@@ -1,8 +1,12 @@
 """The Chore integration."""
 from __future__ import annotations
 
+from pathlib import Path
+
 import voluptuous as vol
 
+from homeassistant.components.frontend import add_extra_js_url
+from homeassistant.components.http import StaticPathConfig
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import ATTR_ENTITY_ID, Platform
 from homeassistant.core import HomeAssistant, ServiceCall, callback
@@ -15,9 +19,21 @@ PLATFORMS = [Platform.SENSOR]
 
 SERVICE_MARK_DONE_SCHEMA = vol.Schema({vol.Required(ATTR_ENTITY_ID): cv.entity_ids})
 
+CARD_URL_BASE = "/chore_tracker_frontend"
+CARD_JS_URL = f"{CARD_URL_BASE}/chore-card.js"
+
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     hass.data.setdefault(DOMAIN, {"chores": {}})
+
+    await hass.http.async_register_static_paths(
+        [
+            StaticPathConfig(
+                CARD_URL_BASE, str(Path(__file__).parent / "www"), cache_headers=False
+            )
+        ]
+    )
+    add_extra_js_url(hass, CARD_JS_URL)
 
     async def handle_mark_done(call: ServiceCall) -> None:
         entity_ids = set(call.data[ATTR_ENTITY_ID])

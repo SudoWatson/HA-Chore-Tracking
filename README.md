@@ -14,11 +14,10 @@ A tiny Home Assistant integration for tracking "how long since I last did X" cho
 
 ## Install
 
-1. Add this repository to HACS as a custom repository (Integrations category), then install "Chore Tracker".
-2. Restart Home Assistant.
-3. Add the card resource: Settings → Dashboards → Resources → Add Resource → `/hacsfiles/chore/chore-card.js`, type **JavaScript Module**.
-   - This step is manual because the card can only be auto-registered on storage-mode dashboards. If your dashboard is edited in YAML mode (like this project's `dashboard.yaml`), there's no way around adding the resource by hand once.
-4. Settings → Devices & Services → Helpers → "+ Create Helper" → **Chore**.
+1. Add this repository to HACS as a custom repository (Integration category), then install "Chore Tracker".
+2. Restart Home Assistant. The integration registers `chore-card.js` itself on startup (via `frontend.add_extra_js_url`), so no manual Resources step is needed — this works even with a YAML-mode dashboard like this project's `dashboard.yaml`, since it bypasses HACS's resource-table mechanism entirely.
+   - If the card doesn't show up after restarting, hard-refresh the dashboard's browser tab once to clear any cached frontend bundle.
+3. Settings → Devices & Services → Helpers → "+ Create Helper" → **Chore**.
 
 ## Using the card
 
