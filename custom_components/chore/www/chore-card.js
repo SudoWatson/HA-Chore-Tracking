@@ -51,6 +51,9 @@ class ChoreCard extends HTMLElement {
             font-size: 0.85em;
             opacity: 0.8;
           }
+          .chore-card__body--ok .chore-card__icon {
+            color: var(--success-color, green);
+          }
           .chore-card__body--due .chore-card__icon {
             color: var(--warning-color, #e6b800);
           }
